@@ -59,7 +59,7 @@ public class PetBehaviour : MonoBehaviour
     public void CreateFood()
 	{
         Food = GameObject.Find("Food");
-        if (Food != null)
+        if (Food == null)
         {
             Instantiate(FoodPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         }

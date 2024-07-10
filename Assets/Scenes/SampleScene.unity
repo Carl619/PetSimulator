@@ -417,7 +417,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1901868610374218238, guid: 89419637b65431145b9f9f9f5070cf26, type: 3}
+      - m_Target: {fileID: 2095102420}
         m_TargetAssemblyTypeName: PetBehaviour, Assembly-CSharp
         m_MethodName: CreateFood
         m_Mode: 1
@@ -1147,6 +1147,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1901868610374218238, guid: 89419637b65431145b9f9f9f5070cf26, type: 3}
       propertyPath: myPrefab
+      value: 
+      objectReference: {fileID: 3249404295352166202, guid: 34b310660fab2a54a9788cdb3c4616f3, type: 3}
+    - target: {fileID: 1901868610374218238, guid: 89419637b65431145b9f9f9f5070cf26, type: 3}
+      propertyPath: FoodPrefab
       value: 
       objectReference: {fileID: 3249404295352166202, guid: 34b310660fab2a54a9788cdb3c4616f3, type: 3}
     - target: {fileID: 4005538026569324636, guid: 89419637b65431145b9f9f9f5070cf26, type: 3}
