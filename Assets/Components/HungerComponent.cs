@@ -3,7 +3,7 @@ using UnityEngine;
 public class HungerComponent : MonoBehaviour
 {
     public float Hunger;
-    public float HungerMax;
+    public const float HungerMax = 100;
     public float PercentAdded;
 
     public float Cooldown;
@@ -16,7 +16,6 @@ public class HungerComponent : MonoBehaviour
     void Start()
     {
         Hunger = 0;
-        HungerMax = 100;
         PercentAdded = 5;
 
         Cooldown = 0;
@@ -50,21 +49,22 @@ public class HungerComponent : MonoBehaviour
             Eating = false;
 		}
 
-        if(Hunger > 80 && Hunger < HungerMax)
-		{
-            Hungry = true;
-        }
-        else if(Hunger == HungerMax)
-		{
-            Dying = true;
-        }
-        else if (Hunger >= 20 && Hunger < 50)
+        switch (Hunger)
         {
-            Dying = false;
-        }
-        else if(Hunger < 20)
-		{
-            Hungry = false;
+            case HungerMax:
+                Hungry = true;
+                break;
+            case > 80:
+                Hungry = false;
+                break;
+            case < 20:
+                Hungry = true;
+                break;
+            case < 50:
+                Hungry = false;
+                break;
+            default:
+                break;
         }
     }
 

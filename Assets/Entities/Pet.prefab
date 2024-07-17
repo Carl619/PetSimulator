@@ -46,7 +46,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4005538026569324636}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4161201889706389872, guid: 1299dfd772c05bf4eb2437d163771001, type: 3}
 --- !u!65 &6051030035803626635
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -88,7 +88,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4bc6206bdc7c5144792f63d943f03532, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e25fac356407e3498aaed1d336fc41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Machine: {fileID: 0}
 --- !u!114 &1901868610374218238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Food: {fileID: 0}
-  myPrefab: {fileID: 3249404295352166202, guid: 34b310660fab2a54a9788cdb3c4616f3, type: 3}
+  FoodPrefab: {fileID: 0}
 --- !u!114 &7400626390390622996
 MonoBehaviour:
   m_ObjectHideFlags: 0

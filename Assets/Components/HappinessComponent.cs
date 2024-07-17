@@ -32,21 +32,22 @@ public class HappinessComponent : MonoBehaviour
 
         LosingHappiness();
 
-        if (Happiness < 20 && Happiness > 0)
+        switch(Happiness)
         {
-            Bored = true;
-        }
-        else if (Happiness == 0)
-        {
-            Dying = true;
-        }
-        else if (Happiness < 80 && Happiness > 50)
-        {
-            Dying = false;
-        }
-        else if (Happiness > 80)
-        {
-            Bored = false;
+            case >80:
+                Bored = false;
+                break;
+            case >50:
+                Dying = false;
+                break;
+            case 0:
+                Dying = true;
+                break;
+            case <20:
+                Bored = true;
+                break;
+            default:
+                break;
         }
     }
 
