@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PetBehaviour : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class PetBehaviour : MonoBehaviour
         var hun = gameObject.GetComponent<HungerComponent>();
         var hap = gameObject.GetComponent<HappinessComponent>();
 
+        Death();
+
         if (hun.Dying || hap.Dying)
         {
             dyingEvent?.Invoke();
@@ -42,7 +45,20 @@ public class PetBehaviour : MonoBehaviour
         }
     }
 
-    void SetEvents()
+    public void Death()
+	{
+        var com = gameObject.GetComponent<HealthComponent>();
+        if (com != null)
+        {
+            if(com.Health == 0)
+			{
+                SceneManager.LoadScene("GameOver");
+            }
+        }
+        
+    }
+
+    private void SetEvents()
 	{
         var com = GetComponent<AIComponent>();
         if(com != null)
@@ -109,8 +125,12 @@ public class PetBehaviour : MonoBehaviour
 
     private void Move(float speed)
     {
-        // Move our position a step closer to the target.
-        var step = speed * Time.deltaTime; // calculate distance to move
+        Quaternion lookRotation;
+        Vector3 direction;
+        var step = speed * Time.deltaTime;
+        direction = (Food.transform.position - transform.position).normalized;
+        lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * speed);
         transform.position = Vector3.MoveTowards(transform.position, Food.transform.position, step);
     }
 

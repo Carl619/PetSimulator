@@ -52,16 +52,16 @@ public class HungerComponent : MonoBehaviour
         switch (Hunger)
         {
             case HungerMax:
-                Hungry = true;
+                Dying = true;
                 break;
             case > 80:
-                Hungry = false;
-                break;
-            case < 20:
                 Hungry = true;
                 break;
-            case < 50:
+            case < 20:
                 Hungry = false;
+                break;
+            case < 50:
+                Dying = false;
                 break;
             default:
                 break;
