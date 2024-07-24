@@ -11,6 +11,10 @@ public class UIManager : MonoBehaviour
     public Text HappinessMeter;
     public Text HungerMeter;
 
+    public Image HealthBar;
+    public Image HappinessBar;
+    public Image HungerBar;
+
     public Text StatePet;
     public float Happinesss;
     public float Health;
@@ -24,16 +28,16 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HappinessMeter.text = "Happiness: " + Happinesss.ToString();
-        HealthMeter.text = "Health: " + Health.ToString();
-        HungerMeter.text = "Hunger: " + Hunger.ToString();
+        HappinessMeter.text = "Happiness: ";
+        HealthMeter.text = "Health: ";
+        HungerMeter.text = "Hunger: ";
     }
 
     // Update is called once per frame
     void Update()
     {
-        HappinessMeter.text = "Happiness: " + Happinesss.ToString();
-        HealthMeter.text = "Health: " + Health.ToString();
-        HungerMeter.text = "Hunger: " + Hunger.ToString();
+        HealthBar.fillAmount = Health / 100;
+        HappinessBar.fillAmount = Happinesss / 100;
+        HungerBar.fillAmount = Hunger / 100;
     }
 }

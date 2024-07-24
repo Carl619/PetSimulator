@@ -15,10 +15,10 @@ public class HungryState : State
 
     public override void Execute()
     {
-        var com = gameObject.GetComponent<PetBehaviour>();
-        if (com != null)
+        var petBehaviour = gameObject.GetComponent<PetBehaviour>();
+        if (petBehaviour != null)
         {
-            com.LookingForFood();
+            petBehaviour.LookingForFood();
         }
     }
 }

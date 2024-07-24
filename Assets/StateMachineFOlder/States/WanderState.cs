@@ -9,15 +9,18 @@ public class WanderState : State
     public Vector3 Target;
     public int mul;
 
-    public float cooldown;
-    public float cooldownmax;
+    public float Cooldown;
+    public float Cooldownmax;
+
+    private Quaternion LookRotation;
+    private Vector3 Direction;
 
     public WanderState() : base()
     {
         mul = 5;
-        Target = new Vector3(Random.value * mul, 1, Random.value * mul);
-        cooldownmax = 3;
-        cooldown = 0;
+        Target = new Vector3(Random.value * mul, 0, Random.value * mul);
+        Cooldownmax = 3;
+        Cooldown = 0;
         StateAction = "Wander around the room";
         speed = 10;
     }
@@ -26,12 +29,16 @@ public class WanderState : State
 	{
         // Move our position a step closer to the target.
         var step = speed * Time.deltaTime; // calculate distance to move
-        cooldown += Time.deltaTime;
-        if(cooldown >= cooldownmax)
+        Cooldown += Time.deltaTime;
+        if(Cooldown >= Cooldownmax)
 		{
-            Target = new Vector3(Random.value * mul, 1, Random.value * mul);
-            cooldown = 0;
+            Target = new Vector3(Random.value * mul, 0, Random.value * mul);
+            Cooldown = 0;
         }
+
+        Direction = (Target - transObj.position).normalized;
+        LookRotation = Quaternion.LookRotation(Direction);
+        transObj.rotation = Quaternion.Slerp(transObj.rotation, LookRotation, Time.deltaTime * speed);
         transObj.position = Vector3.MoveTowards(transObj.position, Target, step);
     }
 }

@@ -14,19 +14,19 @@ public class DyingState : State
     public override void Execute()
     {
         // Move our position a step closer to the target.
-        var com = gameObject.GetComponent<HealthComponent>();
-        var com2 = gameObject.GetComponent<HungerComponent>();
-        var pet = gameObject.GetComponent<PetBehaviour>();
-        if (com != null && com2 != null)
+        var healthCom = gameObject.GetComponent<HealthComponent>();
+        var hungerCom = gameObject.GetComponent<HungerComponent>();
+        var petBehaviour = gameObject.GetComponent<PetBehaviour>();
+        if (healthCom != null && hungerCom != null)
         {
-            if (!com2.Eating)
+            if (!hungerCom.Eating)
             {
-                com.LosingHealth();
+                healthCom.LosingHealth();
             }
             //food is eaten
-            if(pet != null)
+            if(petBehaviour != null)
 			{
-                pet.LookingForFood();
+                petBehaviour.LookingForFood();
             }
         }
     }
